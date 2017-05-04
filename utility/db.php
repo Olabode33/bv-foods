@@ -6,7 +6,7 @@
 	{
 		function __construct(){}
 
-		function db_connect($user='root', $password='usbw', $db='restaurants')
+		function db_connect($user='root', $password='bv-p@ssw0rd', $db='bvfoods-db')
 		{
 			$conn = mysqli_connect('127.0.0.1', $user, $password);
 			if(!$conn) {
