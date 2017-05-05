@@ -72,7 +72,7 @@
 		
 		<!-- Hide Upload Image on Edit -->
 		<?php 
-			iif($rid == 0 || (isset($_POST['r']) && $_POST['r'] == 'new')){
+			if($rid == 0 || (isset($_POST['r']) && $_POST['r'] == 'new')){
 		?>
 				<div class="form-group">
 					<label for="logo" class="col-lg-2 control-label">Logo</label>
