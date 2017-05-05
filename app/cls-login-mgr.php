@@ -12,8 +12,8 @@
 		
 		function __construct()
 		{
-			require_once '/../utility/db.php';
-			require_once '/../utility/utility.php';
+			require_once './utility/db.php';
+			require_once './utility/utility.php';
 			require_once 'cls-restaurant.php';
 			require_once 'cls-table.php';
 			require_once 'cls-users.php';
