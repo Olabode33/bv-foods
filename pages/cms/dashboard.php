@@ -16,6 +16,8 @@
 		$gender_f = 'none';
 ?>
 
+<h3><span class="fa fa-dashboard"></span> Dashboard <?php echo '<small class="'.$theme_text.'">-  '.ucfirst(($_GET['m'] == 'default')?'summary':$_GET['m']).'</small>';?></h3>
+<div class="<?php echo $theme_color; ?> line"></div>	
 <div class="row">
 	<?php
 		$mode = 'default';
