@@ -72,7 +72,7 @@
 		
 		<!-- Hide Upload Image on Edit -->
 		<?php 
-			if(isset($_POST['r']) && $_POST['r'] != 'edit'){
+			iif($rid == 0 || (isset($_POST['r']) && $_POST['r'] == 'new')){
 		?>
 				<div class="form-group">
 					<label for="logo" class="col-lg-2 control-label">Logo</label>
@@ -133,15 +133,16 @@
 			<label for="state" class="col-lg-2 control-label">State</label>
 			<div class="col-lg-4">
 				<?php
-					$e_state_id = $utility_obj->getObjectFromID('tbl_regions', 'state_id', 'region', $restaurant_info['region']);
+					if(isset($restaurant_info))
+						$e_state_id = $utility_obj->getObjectFromID('tbl_regions', 'state_id', 'region', $restaurant_info['region']);
 					$utility_obj->LoadSelect('tbl_states', 'state', 'state_id', 'state', ((isset($_POST['r']))?$_POST['state']:((isset($_GET['rid']))?$e_state_id:'')));
 				?>
 			</div>
 			<label for="region" class="col-lg-2 control-label">Region</label>
 			<div class="col-lg-4">
 				<?php
-					//echo $restaurant_info['region'];
-					$e_region_id = $utility_obj->getObjectFromID('tbl_regions', 'region_id', 'region', $restaurant_info['region']);
+					if(isset($restaurant_info))
+						$e_region_id = $utility_obj->getObjectFromID('tbl_regions', 'region_id', 'region', $restaurant_info['region']);
 					$utility_obj->LoadSelect('tbl_regions', 'region', 'region_id', 'region', ((isset($_POST['r']))?$_POST['region']:((isset($_GET['rid']))?$e_region_id:'')));
 				?>
 				<span class="help-block">
