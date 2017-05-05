@@ -8,8 +8,8 @@
 		private $util_obj;
 		function __construct()
 		{
-			require_once './utility/db.php';
-			require_once './utility/utility.php';
+			require_once 'utility/db.php';
+			require_once 'utility/utility.php';
 			
 			$this->db_obj = new DBConfig();
 			$this->util_obj = new Utility();
