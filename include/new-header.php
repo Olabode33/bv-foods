@@ -118,9 +118,9 @@
 		case '14':
 			//amber       #FFC107  
 			$theme_color = "bg-dark-amber";
-			$theme_light = "bg-light-grey ";
-			$theme_text = "text-dark-light-grey ";
-			$theme_text_light = "text-light-grey ";
+			$theme_light = "bg-amber";
+			$theme_text = "text-dark-amber";
+			$theme_text_light = "text-amber";
 			$theme_hex = "#FFC107";
 			break;
 		case '15':
