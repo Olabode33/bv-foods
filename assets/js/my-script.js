@@ -119,10 +119,10 @@
 			});
 		}
 		
-		setInterval(function () {
-			update_orderCount();
-			update_orderStatus();
-		}, 2000);
+		// setInterval(function () {
+		//	update_orderCount();
+		//	update_orderStatus();
+		// }, 2000);
 		
 		$('.disabled').click(function(ev) {
 			ev.preventDefault();
