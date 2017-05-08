@@ -7,7 +7,7 @@ class Survey
 	private $db_obj;
 	function __construct()
 	{
-		require_once 'utility/db.php';
+		require 'utility/db.php';
 		$this->db_obj = new DBConfig();
 	}
 	
