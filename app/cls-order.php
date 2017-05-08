@@ -7,7 +7,10 @@
 		private $db_obj;
 		function __construct()
 		{
-			require_once 'utility/db.php';
+			if(isset($_GET['data']))
+				require_once './utility/db.php';
+			else
+				require_once 'utility/db.php';
 			$this->db_obj = new DBConfig();
 		}
 		
