@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	require_once 'cls-order.php';
+	require_once 'app/cls-order.php';
 	
 	$order_obj = new Order();
 	
