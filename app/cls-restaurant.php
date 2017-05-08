@@ -23,7 +23,7 @@ class Restaurant
 		$restaurant = filter_input(INPUT_POST, 'restaurant_name');
 		$theme = filter_input(INPUT_POST, 'theme_id');
 		$logo = $_FILES['logo'];
-		$bg_image = $_FILES['bg_image'];
+		$bg = $_FILES['bg_image'];
 		$address = filter_input(INPUT_POST, 'address');
 		$region = filter_input(INPUT_POST, 'region');
 		$phone = filter_input(INPUT_POST, 'phone');
@@ -61,7 +61,7 @@ class Restaurant
 			}
 			
 			if($_FILES['bg_image']['error'] == 0){
-				$bg_upload = $this->util_obj->upload_image($bg_location, $bg_image);
+				$bg_upload = $this->util_obj->upload_image($bg_location, $bg);
 				
 				if($bg_upload['code'] == 1)
 					$bg_image = 'orig_'.$bg_upload['msg'];
