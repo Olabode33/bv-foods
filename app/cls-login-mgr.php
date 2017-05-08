@@ -12,11 +12,11 @@
 		
 		function __construct()
 		{
-			require_once 'utility/db.php';
-			require_once 'utility/utility.php';
-			require_once 'cls-restaurant.php';
-			require_once 'cls-table.php';
-			require_once 'cls-users.php';
+			require 'utility/db.php';
+			require 'utility/utility.php';
+			require 'cls-restaurant.php';
+			require 'cls-table.php';
+			require 'cls-users.php';
 			
 			$this->db_obj = new DBConfig();
 			$this->util_obj = new Utility();
