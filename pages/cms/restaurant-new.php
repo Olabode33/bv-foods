@@ -77,14 +77,14 @@
 				<div class="form-group">
 					<label for="logo" class="col-lg-2 control-label">Logo</label>
 					<div class="col-lg-4">
-						<input type="file" name="logo" id="logo" class="form-control" value="<?php echo ((isset($_POST['r']))?$_POST['logo']:((isset($_GET['rid']))?$restaurant_info['logo']:''))?>">
+						<input type="file" name="logo" id="logo" class="form-control" value="<?php echo ((isset($_POST['r']) && isset($_POST['r']))?$_POST['logo']:((isset($_GET['rid']))?$restaurant_info['logo']:''))?>">
 						<span class="help-block">
 							Ensure that you use a vector image or a .png format
 						</span>
 					</div>
 					<label for="bg_image" class="col-lg-2 control-label">Background Image</label>
 					<div class="col-lg-4">
-						<input type="file" name="bg_image" id="bg_image" class="form-control" value="<?php echo ((isset($_POST['r']))?$_POST['bg_image']:((isset($_GET['rid']))?$restaurant_info['bg_image']:''))?>" >
+						<input type="file" name="bg_image" id="bg_image" class="form-control" value="<?php echo ((isset($_POST['r']) && isset($_POST['r'])?$_POST['bg_image']:((isset($_GET['rid']))?$restaurant_info['bg_image']:''))?>" >
 						<span class="help-block">
 							Ensure that you use a vector image / .png format with high quality and small size
 						</span>
