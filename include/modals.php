@@ -6,7 +6,7 @@
 				<h4 class="modal-title <?php echo $theme_text; ?>">Your Order</h4>
 			</div>
 			<div class="modal-body">
-				<form action="index.php?a=<?php echo $_GET['a'].((isset($_GET['m']))?'&m='.$_GET['m']:''); ?>" method="POST" class="form-horizontal" id="plate">
+				<form action="index.php?a=<?php echo ((isset($_GET['a']))?$_GET['a'].((isset($_GET['m']))?'&m='.$_GET['m']:''):'actions'); ?>" method="POST" class="form-horizontal" id="plate">
 					<fieldset>
 						<img src="assets/images/demo-menu/pexels-small-01.jpeg" class="img-responsive thumbnail"  id="img"/>
 						<h3 id="menu_item">Menu Item</h3>
@@ -48,7 +48,7 @@
 				<h4 class="modal-title <?php echo $theme_text; ?>">Remove Order</h4>
 			</div>
 			<div class="modal-body">
-				<form action="index.php?a=<?php echo $_GET['a'].((isset($_GET['m']))?'&m='.$_GET['m']:''); ?>" method="post" class="form-horizontal" id="plate">
+				<form action="index.php?a=<?php echo ((isset($_GET['a']))?$_GET['a'].((isset($_GET['m']))?'&m='.$_GET['m']:''):'actions'); ?>" method="post" class="form-horizontal" id="plate">
 					<fieldset>
 						<img src="assets/images/demo-menu/pexels-small-01.jpeg" class="img-responsive thumbnail" id="img"/>
 						<input type="hidden" id="item" name="item"/>
