@@ -81,7 +81,7 @@ class Utility
 		return $new_pword;
 	}
 	
-	function upload_image($location, $image) {
+	function upload_image($location, $image, $name) {
 		$return_array = array();
 			
 		if(isset($image)) {
@@ -124,9 +124,9 @@ class Utility
 			// }
 			
 			if($errors === "") { 
-				if(move_uploaded_file($file_tmp, $location.'orig_'.$_SESSION['restaurant'].'_'.$file_name)){
+				if(move_uploaded_file($file_tmp, $location.'orig_'.preg_replace("/[^a-zA-Z]+/", "", $name).'_'.$file_name)){
 					$return_array['code'] = 1;
-					$return_array['msg'] = $_SESSION['restaurant'].'_'.$file_name;
+					$return_array['msg'] = preg_replace("/[^a-zA-Z]+/", "", $name).'_'.$file_name;
 				}
 				else {
 					$return_array['code'] = 0;
