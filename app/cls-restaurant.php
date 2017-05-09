@@ -51,7 +51,7 @@ class Restaurant
 			echo '</pre>';
 			
 			if($_FILES['logo']['error'] == 0){
-				$logo_upload = $this->util_obj->upload_image($logo_location, $logo);
+				$logo_upload = $this->util_obj->upload_image($logo_location, $logo, $_SESSION['restaurant']);
 				
 				if($logo_upload['code'] == 1){
 					$logo_img = 'orig_'.$logo_upload['msg'];
@@ -61,7 +61,7 @@ class Restaurant
 			}
 			
 			if($_FILES['bg_image']['error'] == 0){
-				$bg_upload = $this->util_obj->upload_image($bg_location, $bg);
+				$bg_upload = $this->util_obj->upload_image($bg_location, $bg, $_SESSION['restaurant']);
 				
 				if($bg_upload['code'] == 1)
 					$bg_image = 'orig_'.$bg_upload['msg'];
