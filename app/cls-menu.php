@@ -344,7 +344,7 @@
 				$sql = "INSERT INTO tbl_menu_items (menu_id, menu_item, price, notes, image, estimated_time)
 							  VALUES (?, ?, ?, ?,  ?, ?);";
 				try{
-					$img_upload = $this->util_obj->upload_image($location, $img);
+					$img_upload = $this->util_obj->upload_image($location, $img, $_SESSION['restaurant'].'_'.$menu_item);
 					
 					if($img_upload['code'] == 1){						
 						$file_name = $img_upload['msg'];
