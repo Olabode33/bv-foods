@@ -254,7 +254,8 @@
 				<?php
 					if (isset($_SESSION['bg_image'])){
 						echo 'style ="
-									background: url(assets/images/restaurants-bg/'.$_SESSION['bg_image'].') no-repeat center center;
+									
+									background: url("assets/images/restaurants-bg/pexel-01.jpg") no-repeat center center fixed;
 									background-size: cover;
 									background-attachment: fixed;"';
 					}
