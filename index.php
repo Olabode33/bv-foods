@@ -2,7 +2,7 @@
 ob_start( );
 
 $action = 'login';
-if (isset($_GET['a']) {
+if (isset($_GET['a'])) {
 	$action = $_GET['a'];
 }
 // elseif(isset($_SESSION['restuarant_id']))
