@@ -2,7 +2,7 @@
 ob_start( );
 
 $action = 'login';
-if (isset($_GET['a']) && isset($_SESSION['user_id'])) {
+if (isset($_GET['a']) {
 	$action = $_GET['a'];
 }
 // elseif(isset($_SESSION['restuarant_id']))
@@ -32,6 +32,9 @@ require_once 'include/new-header.php';
 		</div>
 		<div class="">
 			<?php
+    				if(!isset($_SESSION['user_id']))
+					$action = 'login';
+    
 				require 'pages/'.$action.'.php';
 			?>
 		</div>
