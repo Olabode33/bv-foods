@@ -24,41 +24,6 @@
 			header('Location: index.php?a=message&m=wait');
 		}
 	}
-	
-	// echo "<pre>";
-		// print_r($_SESSION['order'][2]);
-	// echo "</pre>";
-	
-	// $array = $_SESSION['order'];
-	// foreach ($array as $element){
-		// echo "<pre>";
-		// print_r($element);
-	// echo "</pre>";
-	//}
-	
-	// include_once 'app/cls-projects.php';
-
-	// $prj_obj = new Projects();
-	// $prj_obj->scanCategory();
-	// $categorys = $prj_obj->getCategorys();
-
-	// if (isset($_GET['delete']) && $_GET['delete'] == 'true') {
-		// $deleted_rows = $prj_obj->deleteProject($_GET['id']);
-		// if ($deleted_rows > 0) {
-			// $_SESSION['feedback'] = '<div class="alert alert-success alert-dismissible">
-										// <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										// Project successfully deleted from database.<br>
-										// Kindly delete the folder/file.
-									 // </div>';
-		// }
-		// else {
-			// $_SESSION['feedback'] = '<div class="alert alert-warning alert-dismissible">
-										// <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										// Error deleting project
-									 // </div>';
-		// }
-		// header('Location: index.php?a=view');
-	// }
 ?>
 	<div class="container page">
 		<div class="col-sm-12">
