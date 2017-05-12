@@ -5,8 +5,8 @@
 				<div class="row" style="margin-bottom: 20px;">
 					<!--Left Column -->
 					<div class="col-sm-6">
-						<h5>Our Mission</h5>
-						<p>
+						<h5><span class="hidden">Our Mission</span></h5>
+						<p class="hidden">
 							Bringing your favourite meals from different restaurant to one platform, and make it easier for you to find.
 						</p>
 						<span class="">
