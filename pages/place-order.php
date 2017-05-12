@@ -18,15 +18,10 @@
 				}
 				else {
 					$_SESSION['order'][$key]['quantity'] = $val;
-					// echo "<script type='text/javascript'>
-								// document.location.href='index.php?a=message&m=wait';
-							 // </script>";
-					header('Location: index.php?a=message&m=wait');
+					$_SESSION['order'][$key]['pref'] = $_POST['pref'][$key];
 				}
 			}
-		}
-		else {
-			//$_SESSION['feedback']
+			header('Location: index.php?a=message&m=wait');
 		}
 	}
 	
@@ -75,8 +70,9 @@
 						<th class="col-sm-1">S/n</th>
 						<th class="col-xs-3 col-sm-4">Item</th>
 						<th class="col-xs-2 col-sm-2">Price (₦)</th>
-						<th class="col-xs-3 col-sm-2">Servings</th>
-						<th class="col-xs-2 col-sm-2">Total (₦)</th>
+						<th class="col-xs-3 col-sm-2">Servings</th>						
+						<th class="col-xs-2 col-sm-1">Total (₦)</th>
+						<th class="col-xs-2 col-sm-2">Preference</th>
 						<th class="col-xs-1 col-sm-1"> </th>
 					</thead>
 					<tbody>
@@ -94,16 +90,19 @@
 													<td>
 														<div class="input-group">
 															<span class="input-group-btn">
-																<button class="btn btn-default btn-sm '.$theme_color.'" type="button" onclick="updateServings('.$id.', \'#qty'.$id.'\');"><span class="fa fa-plus"></span></button>
+																<button class="btn btn-default btn-sm '.$theme_color.'" type="button" onclick="updateServings('.$id.', \'#qty'.$id.'\', \'minus\');"><span class="fa fa-minus"></span></button>
 															</span>
 															<input type="hidden" class="form-control qty input-sm" id = "qty'.$id.'" name="qty['.$id.']" value="'.$_SESSION['order'][$id]['quantity'].'">
 															<input type="text" class="form-control qty input-sm" id = "qty'.$id.'" name="qty['.$id.']" value="'.$_SESSION['order'][$id]['quantity'].'" disabled>
 															<span class="input-group-btn">
-																<button class="btn btn-default btn-sm '.$theme_color.'" type="button" onclick="updateServings('.$id.', \'#qty'.$id.'\', \'minus\');"><span class="fa fa-minus"></span></button>
+																<button class="btn btn-default btn-sm '.$theme_color.'" type="button" onclick="updateServings('.$id.', \'#qty'.$id.'\');"><span class="fa fa-plus"></span></button>
 															</span>
 														</div>														
 													</td>
 													<td><span id="ttlprice'.$id.'">'.number_format($_SESSION['order'][$id]['price'] * $_SESSION['order'][$id]['quantity'], 2).'</span></td>
+													<td>
+														<input type="text" class="form-control qty input-sm" id = "pref'.$id.'" name="pref['.$id.']" placeholder="Eg. Salty, Pepperish, ...">
+													</td>
 													<td>
 														<button type="button" class="btn btn-primary btn-sm pull-left '.$theme_color.'"  data-toggle="modal" data-target="#removeOrder" data-img="'.$utility_obj->getObjectFromID('tbl_menu_items','image', 'menu_item_id', $id).'" 
 															data-item="'.$utility_obj->getObjectFromID('tbl_menu_items', 'menu_item', 'menu_item_id', $id).'" data-id="'.$id.'" data-price="'.$_SESSION['order'][$id]['price'].'" 
@@ -122,10 +121,8 @@
 											<td>&nbsp;</td>
 										 </tr>
 										 <tr>
-											<td colspan="3">&nbsp;</td>
-											<td >Please type in you peference if you would like one</td>
+											<td colspan="5">&nbsp;</td>
 											<td colspan="2">
-												<input type="text" class="form-control input-sm" placeholder="Salty, Pepperish ..." name="pref" id="pref">
 												<span class="help-block">Your preference would be applied based on availablility</span>
 											</td>
 										 </tr>';
