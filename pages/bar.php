@@ -79,13 +79,15 @@
 										<thead>
 											<th class="col-xs-9">Items</th>
 											<th class="col-xs-3">Quantity</th>
+											<th class="col-xs-5">Perference</th>											
 										</thead>
 										<tbody>';
 										foreach($order_items as $order_item){
 											echo '<tr>
 														<td>'.$order_item['menu_item'].'</td>
 														<td>'.$order_item['quantity'].'</td>
-													 </tr>';
+														<td>'.$order_item['pref'].'</td>
+											 	</tr>';
 										}
 										
 						echo 		'</tbody>
