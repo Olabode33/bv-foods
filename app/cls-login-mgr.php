@@ -35,7 +35,7 @@
 			$users = $this->user_obj->getAll();
 			
 			foreach($users as $user) {
-				if($uname == $user['uname'] && $epass == $user['pass']){
+				if(strtolower($uname) == strtolower($user['uname']) && $epass == $user['pass']){
 					$_SESSION['user_id'] = $user['user_id'];
 					$_SESSION['user'] = $user['uname'];
 					$_SESSION['fname'] = $user['fname'];
