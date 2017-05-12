@@ -63,9 +63,6 @@
 		function add() {
 			$max_order_key = 0;
 			
-			$pref = filter_input(INPUT_POST, 'pref');
-			$pref = 'Tetst';
-			
 			$sql_max = "SELECT max(order_key) FROM tbl_orders";
 			$conn = $this->db_obj->db_connect();
 			$max_stmt = $conn->prepare($sql_max);
@@ -92,7 +89,7 @@
 			$stmt = $conn->prepare($sql);
 			
 			foreach ($_SESSION['order'] as $id=>$value){
-				$stmt->bind_param('ddddddds', $max_order_key, $_SESSION['restaurant_id'], $_SESSION['table_id'], $id, $_SESSION['order'][$id]['quantity'], $_SESSION['order'][$id]['price'], $avg_etime, $pref);
+				$stmt->bind_param('ddddddds', $max_order_key, $_SESSION['restaurant_id'], $_SESSION['table_id'], $id, $_SESSION['order'][$id]['quantity'], $_SESSION['order'][$id]['price'], $avg_etime, $_SESSION['order'][$id]['pref']);
 				$stmt->execute();
 				$count++;
 			}
@@ -218,14 +215,14 @@
 			
 			switch($type){
 				case 't':
-					$sql = "SELECT order_id, table_id, menu_item_id, menu_item, quantity, price, order_date, order_status_id, response_date
+					$sql = "SELECT order_id, table_id, menu_item_id, menu_item, quantity, price, order_date, order_status_id, response_date, preference
 								 FROM tbl_orders o
 									LEFT JOIN tbl_menu_items mi ON o.menu_item_id = mi.menu_item_id
 								 WHERE table_id = ?";
 					break;
 					
 				case 'r':
-					$sql = "SELECT order_id, rm.restaurant_id, table_id, menu_item_id, menu_item, quantity, price, order_date, order_status_id, response_date, estimated_d_time
+					$sql = "SELECT order_id, rm.restaurant_id, table_id, menu_item_id, menu_item, quantity, price, order_date, order_status_id, response_date, estimated_d_time, preference
 								 FROM tbl_orders o
 									LEFT JOIN tbl_menu_items mi ON o.menu_item_id = mi.menu_item_id
 									LEFT JOIN tbl_menus m ON mi.menu_id = m.menu_id
@@ -234,14 +231,14 @@
 					break;
 					
 				case 'k':
-					$sql = "SELECT order_id, table_id, mi.menu_item_id, menu_item, quantity, price, order_date, order_status_id, response_date, estimated_d_time
+					$sql = "SELECT order_id, table_id, mi.menu_item_id, menu_item, quantity, price, order_date, order_status_id, response_date, estimated_d_time, preference
 								 FROM tbl_orders o
 									LEFT JOIN tbl_menu_items mi ON o.menu_item_id = mi.menu_item_id
 								 WHERE order_key = ?";
 					break;
 
 				default:
-					$sql = "SELECT order_id, table_id, menu_item_id, menu_item, quantity, price, order_date, order_status_id, response_date, estimated_d_time
+					$sql = "SELECT order_id, table_id, menu_item_id, menu_item, quantity, price, order_date, order_status_id, response_date, estimated_d_time, preference
 								 FROM tbl_orders o
 									LEFT JOIN tbl_menu_items mi ON o.menu_item_id = mi.menu_item_id
 								 WHERE table_id = ?";
@@ -253,7 +250,7 @@
 				$stmt = $conn->prepare($sql);
 				$stmt->bind_param('d', $id);
 				$stmt->execute();
-				$stmt->bind_result($id, $table_id, $menu_item_id, $menu_item, $quantity, $price, $order_date, $order_status_id, $response_date, $etime);
+				$stmt->bind_result($id, $table_id, $menu_item_id, $menu_item, $quantity, $price, $order_date, $order_status_id, $response_date, $etime, $preference);
 
 				while ($stmt->fetch()) {
 					$tmp = array();
@@ -267,6 +264,7 @@
 					$tmp['order_status_id'] = $order_status_id;
 					$tmp['response_date'] = $response_date;
 					$tmp['etime'] = $etime;
+					$tmp['pref'] = $preference;
 					
 					array_push($all, $tmp);
 				}
